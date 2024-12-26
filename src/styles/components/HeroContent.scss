@@ -1,0 +1,84 @@
+@use "/src/styles/main.scss" as *;
+
+.hero_container {
+    position: relative;
+    width: 100%;
+    img {
+        width: 100%;
+        height: toRem(650);
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: toRem(650);
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+        z-index: 1;
+    }
+}
+
+.hero_container_typo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: toRem(150) 0px toRem(20) toRem(110);
+    z-index: 2;
+
+    @include media('<=tablet') {
+        margin: toRem(200) 0px toRem(20) toRem(65);
+        max-width: toRem(480);
+    }
+
+    @include media('<=phone-tab') {
+        margin: toRem(200) 0px toRem(20) toRem(65);
+        max-width: toRem(300);
+    }
+
+    &_title {
+        font-size: toRem(40);
+        font-weight: 700;
+        color: $white;
+
+        @include media('<=phone-tab') {
+            font-size: toRem(24);
+        }
+    }
+
+    &_text {
+        font-size: toRem(24);
+        font-weight: 500;
+        color: $white;
+        margin-top: toRem(10);
+
+        @include media('<=phone-tab') {
+            font-size: toRem(18);
+        }
+    }
+
+    button{
+        text-align: center;
+        background-color: $orange-button;
+        color: #ffffff;
+        border: none;
+        padding: toRem(10) toRem(24);
+        border-radius: toRem(5);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin-top: toRem(15);
+
+        &:hover {
+            transform: scale(105%);
+            opacity: 90%;
+        }
+
+        @include media('<=phone-tab') {
+            padding: toRem(10) toRem(20);
+        }
+    }
+}

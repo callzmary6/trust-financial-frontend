@@ -1,0 +1,109 @@
+// @use '/src/styles/main.scss' as *;
+
+// .header_cont {
+//     @include flex(space-between, center, 0px);
+//     padding: toRem(30) toRem(40);
+//     font-family: $font-instrument-sans;
+//     font-weight: 500;
+//     font-size: toRem(16);
+//     background-color: #1a1a2e;
+//     color: #ffffff;
+
+//     .email {
+//         @include flex(start, center, toRem(5));
+
+//         &_icon {
+//             width: toRem(30);
+//             height: toRem(30);
+//             @include flex(start, center, toRem(5));
+//         }
+
+//         &_address {
+
+//         }
+//     }
+// }
+
+
+// src/styles/components/Header.scss
+@use '/src/styles/main.scss' as *;
+
+.header_cont {
+    @include flex(space-between, center, 0px);
+    padding: toRem(20) toRem(30);
+    font-family: $font-instrument-sans;
+    font-weight: 500;
+    font-size: toRem(16);
+    background-color: #1a1a2e;
+    color: #ffffff;
+    border-bottom: 2px solid #0f3460;
+
+    .email {
+        @include flex(start, center, toRem(5));
+
+        &_icon {
+            width: toRem(30);
+            height: toRem(30);
+            @include flex(center, center, toRem(5));
+            margin-right: toRem(10);
+            color: #e94560;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #f0a500;
+            }
+        }
+
+        &_address {
+            font-size: toRem(16);
+            color: #ffffff;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #f0a500;
+            }
+        }
+    }
+
+    .powered_by {
+        font-size: toRem(14);
+        color: #a0a0a0;
+    }
+}
+
+@media (max-width: 768px) {
+    .header_cont {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: toRem(15) toRem(20);
+
+        .email {
+            margin-bottom: toRem(10);
+        }
+
+        .powered_by {
+            font-size: toRem(12);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .header_cont {
+        padding: toRem(10) toRem(15);
+
+        .email {
+            &_icon {
+                width: toRem(25);
+                height: toRem(25);
+            }
+
+            &_address {
+                font-size: toRem(16);
+            }
+        }
+
+        .powered_by {
+            font-size: toRem(12);
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@use "/src/styles/main.scss" as *;
+
+.cards_cont {
+    @include flex_col(toRem(20));
+    align-items: center;
+    // font-family: $font-eb-garamond;
+    font-family: $font-instrument-sans;
+    width: toRem(340);
+    // height: toRem(450);
+    border-radius: toRem(10);
+    padding: toRem(10);
+    padding-bottom: toRem(40);
+    // margin-top: toRem(30);
+    // margin-bottom: toRem(30);
+    background-color: $white;
+    color: $black-2;
+
+    &:hover {
+        transform: scale(103%);
+        cursor: pointer;
+        transition: all ease-in 0.3s;
+    }
+
+    @include media('<=tablet') {
+        width: auto;
+    }
+
+    .image {
+        width: toRem(320);
+        // height: toRem(250);
+        height: auto;
+
+        img {
+            width: 100%;
+            border-radius: toRem(7);
+            
+        }
+
+        @include media('<=tablet') {
+            width: auto;
+        }
+    }
+
+    .title {
+        font-size: toRem(24);
+        font-weight: 600;
+    }
+
+    .text {
+        text-align: center;
+        font-size: toRem(14);
+        font-weight: 400;
+        max-width: toRem(280);
+        line-height: toRem(19);
+    }
+}

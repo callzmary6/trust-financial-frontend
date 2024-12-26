@@ -1,0 +1,10 @@
+@use "/src/styles/main" as *;
+
+.after_hero_container {
+    @include flex(center, center, toRem(15));
+    margin: toRem(40) auto;
+
+    @include media('<=tablet') {
+        @include flex_col(toRem(30));
+    }
+}
