@@ -57,7 +57,7 @@ export default function Login() {
         <div className="absolute left_8 top_8">
           <div className="flex items_center text_xl font_semibold text_blue_500">
             <span className="mr_2 rounded border_2 border_blue_500 p_1">□</span>
-              AccunarHub
+              AccunarTech
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function Login() {
         <div className="mx_auto w_full max_w_md space_y_8">
           <div className="space_y_2">
             <h1 className="text_3xl font_bold tracking_tight title_color">
-              AccunarHub
+              AccunarTech
             </h1>
             <p className="text_slate_400">
               Login your account
@@ -118,7 +118,7 @@ export default function Login() {
               )}
         </button>
             <div className='in_up'>
-              Dont have an account? <span className='link' onClick={()=>navigate("/signup")}>Sign up</span>
+              Don't have an account? <span className='link' onClick={()=>navigate("/signup")}>Sign up</span>
             </div>
           </form>
         </div>
