@@ -4,8 +4,6 @@ import {
   requestOtp as apiRequestOtp,
   RequestOtpResponse,
 } from '../services/apiAuth';
-// import { useAuthStore } from '../store/AuthStore';
-import { storage } from '../utils/fleetUtils';
 import { ForgotPasswordData } from '../types/SignupData';
 import { useNavigate } from 'react-router';
 

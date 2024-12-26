@@ -1,12 +1,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-// Import the styles
 import '@splidejs/react-splide/css';
 import HeroContent from './HeroContent';
-// You can also import specific themes:
-// import '@splidejs/react-splide/css/sea-green';
-// import '@splidejs/react-splide/css/skyblue';
 
-// If you're using TypeScript, define the slide type
 
 import people1 from "../assets/people1.jpg";
 import people2 from "../assets/people2.jpg";

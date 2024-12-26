@@ -33,6 +33,7 @@ export function useResetPassword(): UseResetPasswordReturn {
       toast.success('Password changed successfully');
       localStorage.removeItem("email");
       navigate("/login");
+      console.log(data);
     },
     onError: (err: Error) => {
       toast.error(err.message || 'failed');
