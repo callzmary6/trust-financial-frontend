@@ -1,13 +1,16 @@
 import CryptoTable from "../components/CryptoTable";
+import { useAuth } from "../context/AuthContext";
 import "../styles/pages/DashboardLayout.scss";
 
 const DashboardLayout = () => {
+
+  const {user} = useAuth();
 
   return (
     <div className="dashboard_layout">
       <div className="dashboard_layout_intro">
         <div className="dashboard_layout_intro_left">
-          <div className="dashboard_layout_intro_left_name">Welcome King</div>
+          <div className="dashboard_layout_intro_left_name">Welcome {user?.user.firstName}</div>
           <div className="dashboard_layout_intro_left_dash">This is your dashboard</div>
         </div>
         <div className="dashboard_layout_intro_right">
