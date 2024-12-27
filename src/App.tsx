@@ -13,6 +13,8 @@ import ChangePassword from './pages/ChangePassword';
 import RequestOtp from './pages/RequestOtp';
 import DashboardLayout from './pages/DashboardLayout';
 import ProtectedRoute from './context/ProtectedRoute';
+import AppLayout from './view/AppLayout';
+import Pages from './pages/Pages';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,13 +41,17 @@ function App() {
               <Route path="/change-password" element={<ChangePassword />} />
               <Route path="/request-otp" element={<RequestOtp />} />
               <Route
-                path="/dashboard"
+                path="/app"
                 element={
                   <ProtectedRoute>
-                    <DashboardLayout />
+                    <AppLayout />
                   </ProtectedRoute>
                 }
-              />
+              >
+                <Route path='/app/dashboard' element={<DashboardLayout />} />
+                <Route path='/app/deposit' element={<Pages />} />
+                <Route path='/app/withdraw' element={<Pages />} />
+              </Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>
 

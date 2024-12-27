@@ -1,0 +1,13 @@
+@use '/src/styles/main.scss' as *;
+
+.nav {
+    
+    @include flex_col(toRem(22));
+    align-items: center;
+    justify-content: center;
+    width: toRem(136);
+    height: auto;
+    // margin: toRem(14) 0;
+    width: 100%;
+    
+}

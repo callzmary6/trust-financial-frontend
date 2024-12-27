@@ -1,0 +1,121 @@
+@use "/src/styles/main.scss" as *;
+
+.dashboard_layout {
+    @include flex_col(toRem(20));
+    align-items: center;
+    // justify-content: center;
+
+    width: 100%;
+    color: $base;
+    font-weight: 500;
+
+    svg {
+        color: $base;
+    }
+
+
+    &_intro {
+        @include flex(space-between, center, 0px);
+        background-color: $white;
+        border: toRem(1) solid $white-2;
+        border-radius: toRem(8);
+        width: 95%;
+        height: toRem(120);
+
+        &_left {
+            @include flex_col(toRem(20));
+            margin-left: toRem(20);
+
+            &_name {
+                font-size: toRem(28);
+                font-weight: 600;
+                color: $third;
+            }
+            &_dash {
+                font-size: toRem(16);
+            }
+        }
+
+        &_right {
+            @include flex_col(toRem(20));
+            margin-right: toRem(20);
+
+            &_refferal {
+                font-size: toRem(16);
+                color: $my-green;
+            }
+            &_code {
+                font-size: toRem(16);
+                color: $primary-orange;
+                align-self: end;
+            }
+        }
+    }
+
+    &_money {
+        @include flex(space-between, center, toRem(10));
+        width: 95%;
+
+        &_balance {
+            width: toRem(250);
+            height: toRem(120);
+            background-color: $white;
+            @include flex(start, center, toRem(15));
+            padding: toRem(10) toRem(10);
+            border: toRem(1) solid $white-2;
+            border-radius: toRem(8);
+
+            &_amt {
+                font-weight: 600;
+                font-size: toRem(18);
+                margin-top: toRem(5);
+            }
+            
+
+            svg {
+                width: toRem(80);
+                height: toRem(80);
+            }
+        }
+    }
+
+    &_last {
+        width: 95%;
+        @include flex(start, start, toRem(30));
+
+        &_crypto {
+            width: 60%;
+            background-color: $white;
+            border: toRem(1) solid $white-2;
+            border-radius: toRem(8);
+        }
+
+        &_history {
+            width: 40%;
+            height: toRem(150);
+            background-color: $white;
+            border: toRem(1) solid $white-2;
+            border-radius: toRem(8);
+            padding: toRem(20);
+
+            &_title {
+                font-weight: 600;
+                font-family: $nunito;
+                color: $my-green;
+                font-size: toRem(22);
+            }
+
+            &_nothing {
+                font-weight: 400;
+                font-family: $comfortaa;
+                color: $base;
+                font-size: toRem(16);
+                background-color: $white-4;
+                width: 95%;
+                height: toRem(60);
+                @include flex(center, center, 0px);
+                margin-top: toRem(10);
+            }
+        }
+    }
+}

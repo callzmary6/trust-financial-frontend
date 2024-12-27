@@ -1,0 +1,22 @@
+@use "/src/styles/main.scss" as *;
+
+.dash_title {
+    color: $pale-gold;
+    text-align: center;
+    @include flex_col(toRem(0));
+    align-items: center;
+    justify-content: center;
+    margin-top: toRem(10);
+    font-family: $comfortaa;
+    font-size: toRem(20);
+    font-weight: 600;
+    height: toRem(70);
+
+}
+
+.sidebar {
+    @include flex_col(toRem(20));
+    align-items: center;
+    color: $white-2;
+    // padding-top: toRem(80);
+}

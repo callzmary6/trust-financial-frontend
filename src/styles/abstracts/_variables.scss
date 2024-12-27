@@ -1,11 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
 $inter: 'Inter', sans-serif;
 $font-work-sans: 'Work Sans', serif;
 $font-instrument-sans: 'Instrument Sans', sans-serif;
 $font-space-grotesk: 'Space Grotesk', sans-serif;
 $font-eb-garamond: 'EB Garamond', serif;
+
+$font-mkhai: 'MKhai2 HK Black', sans-serif;
+$dm-sans: 'DM Sans', serif;
+$comfortaa: 'Comfortaa', sans-serif;
+$nunito: 'Nunito', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$poppins: 'Poppins', sans-serif;
+
+$base: #333333;
+$secondary: #f3ebe2;
+$secondary-orange: #fea621;
+$primary-orange: #fe330a;
+$primary-green: #40A629;
+$off-white: #F9F7F7;
+$my-green: #425f15;
+$secondary-green: #80c41c;
+$col-milch: #fbf8f4;
+$col-cream: #e7d7c5;
+$dark-brown: #4d3d30;
+$primary-text: #2b2b2b;
+$heading-text: #120d07;
+$third: #594024;
+$linkout: #a37642;
+$col-white: #ffffff;
+$input-text-1: #5d4949;
+
+$primary-brown: #efeae6;
+$secondary-brown: #2C2323;
+$primary-black: rgba(32, 30, 29, 1);
+$secondary-black: #000000;
 
 $white: #ffffff;
 $white-2: #f2f2f2;
@@ -15,6 +47,7 @@ $black: #000000;
 $pale-yellow: #ffd599;
 $pale-gold: #E1CA93;
 $black-2: #333333;
+$base: #333333;
 $orange-button: #c03838;
 
 %mg_au {

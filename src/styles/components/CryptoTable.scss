@@ -1,0 +1,39 @@
+@use "/src/styles/main.scss" as *;
+
+.crypto_table {
+    font-family: $comfortaa;
+    font-weight: 500;
+    font-size: toRem(15);
+    height: 100%;
+     &_header {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 1fr;
+        align-items: center;
+        // border: 1px solid blue;
+        row-gap: toRem(20);
+        padding: toRem(30);
+
+        &_token {
+            border-bottom: toRem(1) solid $primary-brown;
+        }
+        &_token_main {
+            border-bottom: toRem(1) solid #a19f9f;
+            font-weight: 600;
+            font-size: toRem(22);
+            font-family: $nunito;
+            color: $orange-button;
+        }
+
+        &_price {
+            border-bottom: toRem(1) solid $primary-brown;
+        }
+        &_price_main {
+            border-bottom: toRem(1) solid #a19f9f;
+            font-weight: 600;
+            font-family: $nunito;
+            color: $orange-button;
+            font-size: toRem(22);
+        }
+     }
+}

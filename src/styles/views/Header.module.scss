@@ -1,0 +1,27 @@
+@use '/src/styles/main.scss' as *;
+
+.cont {
+    @include flex(flex-end, center, toRem(0));
+    padding-right: toRem(30);
+    width: 100%;
+
+
+    &_login button {
+        text-align: center;
+        background-color: $orange-button;
+        color: #ffffff;
+        border: none;
+        padding: toRem(8) toRem(18);
+        border-radius: toRem(3);
+        font-weight: 500;
+        font-size: toRem(16);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    
+        &:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+    }
+
+}

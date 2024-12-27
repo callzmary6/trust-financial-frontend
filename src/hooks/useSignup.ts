@@ -38,7 +38,7 @@ export function useSignup(): UseSignupReturn {
       login(user);
 
       toast.success('Signed up successfully');
-      navigate('/');
+      navigate('/app/dashboard');
       console.log('Signup successful:', data);
     },
     onError: (err: Error) => {

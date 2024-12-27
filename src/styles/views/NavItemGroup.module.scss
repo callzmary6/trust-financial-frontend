@@ -1,0 +1,30 @@
+@use '/src/styles/main.scss' as *;
+
+.cont {
+    @include flex_col(toRem(2));
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    color: $white;
+    cursor: pointer;
+    width: 100%;
+    height: toRem(40);
+
+    &__text {
+        font-family: $nunito;
+        font-size: toRem(16);
+        font-weight: 500;
+        line-height: toRem(19.1);
+        letter-spacing: toRem(1);
+    }
+
+    &:hover {
+        background-color: $secondary-orange;
+        color: $base;
+    }
+}
+
+.active {
+    background-color: $secondary-orange;
+    color: $base;
+}

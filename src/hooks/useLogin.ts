@@ -42,7 +42,7 @@ export function useLogin(): UseLoginReturn {
       toast.success('Logged in successfully');
       // navigate('/');
       console.log('Login successful:', data);
-      navigate("/dashboard");
+      navigate("/app/dashboard");
     },
     onError: (err: Error) => {
       toast.error(err.message || 'Login failed');

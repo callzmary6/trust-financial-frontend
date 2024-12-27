@@ -1,0 +1,36 @@
+
+@use "/src/styles/main.scss" as *;
+
+
+/* Base styles */
+
+.appLayout {
+  display: grid;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main-content";
+  grid-template-columns: toRem(250) 1fr;
+  grid-template-rows: toRem(80) 1fr;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Header styles */
+.header {
+  grid-area: header;
+  background-color: $white-4;
+  @include flex(flex-start, center, toRem(0));
+}
+
+/* Sidebar styles */
+.sidebar {
+  grid-area: sidebar;
+  background-color: #1e293b;
+}
+
+/* Main content styles */
+.mainContent {
+  grid-area: main-content;
+  overflow-y: auto; /* Allows scrolling if content is large */
+  background-color: $white-2;
+  padding: toRem(30);
+}
