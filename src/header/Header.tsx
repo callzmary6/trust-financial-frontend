@@ -1,10 +1,9 @@
-import { useNavigate } from "react-router";
+
 import styles from "../styles/views/Header.module.scss";
 import Logout from "../components/Logout";
 import { useAuth } from "../context/AuthContext";
 
 function Header() {
-    const navigate = useNavigate();
     const {logout} = useAuth();
     function handleLogout() {
         // setSidebarVisible(false);
