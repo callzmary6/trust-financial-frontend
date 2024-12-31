@@ -248,12 +248,19 @@
     white-space: nowrap;
     border-width: 0;
   }
-
-form {
+.resolve {
+  form {
     font-family: $font-space-grotesk;
     font-size: toRem(18);
     font-weight: 500;
-    @include flex_col(toRem(17));
+    @include flex_col(toRem(22));
+
+    //additional
+    background-color: transparent;
+    border: toRem(1) solid $primary-brown;
+    color: $white;
+    padding: 0px;
+    border: none;
 
     input {
         width: toRem(400);
@@ -329,6 +336,8 @@ form {
         }
     }
 }
+}
+
 
 .form_cont {
     @include flex(center, center, 0px);
@@ -344,7 +353,7 @@ img {
 }
 
 .fpass {
-    color: rgb(243, 7, 7);
+    // color: rgb(243, 7, 7);
     font-size: toRem(14);
     font-weight: 400;
     &:hover {

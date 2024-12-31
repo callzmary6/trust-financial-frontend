@@ -97,7 +97,7 @@ export default function RequestOtpCode() {
   };
 
   return (
-    <div className="grid min_h_screen md_grid_cols_2">
+    <div className="grid min_h_screen md_grid_cols_2 resolve">
       {/* Left Section - Image */}
       <div className="relative hidden md_block">
         <img

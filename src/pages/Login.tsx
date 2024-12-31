@@ -45,7 +45,7 @@ export default function Login() {
   };
 
   return (
-    <div className="grid min_h_screen md_grid_cols_2">
+    <div className="grid min_h_screen md_grid_cols_2 resolve">
       {/* Left Section - Image */}
       <div className="relative hidden md_block">
         <img
@@ -74,7 +74,7 @@ export default function Login() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className="auth_form" onSubmit={handleSubmit(onSubmit)}>
           <div className='email'>
               <label htmlFor="email">Email</label>
               <input 
