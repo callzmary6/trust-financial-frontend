@@ -25,7 +25,7 @@ function ConfirmDeposit() {
 
     const selectedPlan: SelectedPlanProps | undefined= getPlanByName(paymentInfo.investmentPlan);
 
-    const {name, ROI, duration, referralCommission, minDeposit, maxDeposit} = selectedPlan as SelectedPlanProps;
+    const {name, ROI, duration } = selectedPlan as SelectedPlanProps;
 
     return (
         <div className="confirm_deposit">
@@ -61,7 +61,7 @@ function ConfirmDeposit() {
                         <td>Available with 0.00% fee</td>
                         {/* <td>$5000.00</td> */}
                         <td>___</td>
-                        <td>$5000.00</td>
+                        <td>___</td>
                     </tr>
                     </tbody>
                 </table>

@@ -14,7 +14,6 @@ import RequestOtp from './pages/RequestOtp';
 import DashboardLayout from './pages/DashboardLayout';
 import ProtectedRoute from './context/ProtectedRoute';
 import AppLayout from './view/AppLayout';
-import Pages from './pages/Pages';
 import Deposit from './pages/Deposit';
 import Withdraw from './pages/Withdraw';
 import ConfirmDeposit from './pages/ConfirmDeposit';
@@ -46,9 +45,9 @@ function App() {
               <Route
                 path="/app"
                 element={
-                  // <ProtectedRoute>
+                  <ProtectedRoute>
                     <AppLayout />
-                  // </ProtectedRoute>
+                  </ProtectedRoute>
                 }
               >
                 <Route path='/app/dashboard' element={<DashboardLayout />} />
