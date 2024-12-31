@@ -1,0 +1,81 @@
+@use "/src/styles/main.scss" as *;
+
+
+form {
+    font-family: $font-space-grotesk;
+    font-size: toRem(18);
+    font-weight: 500;
+    @include flex_col(toRem(17));
+    background-color: #ffffff;
+    padding: toRem(20);
+    border: toRem(1) solid $white-2;
+    border-radius: toRem(8);
+    color: $base;
+
+    select, input {
+        width: toRem(450);
+        height: toRem(35);
+        outline: none;
+        font-family: $font-space-grotesk;
+        font-size: toRem(18);
+        font-weight: 500;
+        padding-left: toRem(10);
+        border-radius: toRem(3);
+        border: toRem(1) solid $white-3;
+        background-color: $white-5;
+
+        @include media('<=phone-tab') {
+            width: toRem(350);
+        }
+    }
+
+    select {
+        cursor: pointer;
+    }
+
+    button {
+        text-align: center;
+        width: toRem(80);
+        height: toRem(40);
+        background-color: $my-blue;
+        color: #ffffff;
+        border: none;
+        border: toRem(1) solid $white-2;
+        border-radius: toRem(5);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin-top: toRem(10);
+
+        @include media('<=phone-tab') {
+            width: toRem(150);
+        }
+
+
+        &:hover {
+            transform: scale(105%);
+            opacity: 90%;
+        }
+        
+    }
+    .investmentPlan, .amount, .crypto {
+        @include flex_col(toRem(10));
+        min-width: 100%;
+        position: relative;
+
+        .error {
+            font-family: $font-work-sans;
+            font-size: toRem(14);
+            font-weight: 400;
+            line-height: toRem(5);
+            text-align: left;
+            color: red;
+            position: absolute;
+            bottom: toRem(-13);
+        
+            @include media('<=phone-tab') {
+                font-size: toRem(12);
+            }
+            }
+    }
+}

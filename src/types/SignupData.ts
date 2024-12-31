@@ -12,6 +12,17 @@ export type LoginData = {
   password: string;
 };
 
+export type DepoData= {
+  investmentPlan: string;
+  amount: number;
+  crypto: string;
+}
+
+export type PaymentData = {
+  payerAddress: string;
+  transactionId: string;
+}
+
 
 export type ForgotPasswordData = {
   email: string;

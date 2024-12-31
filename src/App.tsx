@@ -15,6 +15,9 @@ import DashboardLayout from './pages/DashboardLayout';
 import ProtectedRoute from './context/ProtectedRoute';
 import AppLayout from './view/AppLayout';
 import Pages from './pages/Pages';
+import Deposit from './pages/Deposit';
+import Withdraw from './pages/Withdraw';
+import ConfirmDeposit from './pages/ConfirmDeposit';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,14 +46,15 @@ function App() {
               <Route
                 path="/app"
                 element={
-                  <ProtectedRoute>
+                  // <ProtectedRoute>
                     <AppLayout />
-                  </ProtectedRoute>
+                  // </ProtectedRoute>
                 }
               >
                 <Route path='/app/dashboard' element={<DashboardLayout />} />
-                <Route path='/app/deposit' element={<Pages />} />
-                <Route path='/app/withdraw' element={<Pages />} />
+                <Route path='/app/deposit' element={<Deposit />} />
+                <Route path='/app/deposit/confirm' element={<ConfirmDeposit />} />
+                <Route path='/app/withdraw' element={<Withdraw />} />
               </Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>

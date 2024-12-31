@@ -7,6 +7,7 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
+  balance?: number;
   createdAt: string;
   updatedAt: string;
   refferalCode: string;

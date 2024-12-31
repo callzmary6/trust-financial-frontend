@@ -1,0 +1,61 @@
+@use "/src/styles/main.scss" as *;
+
+.confirm_deposit {
+    @include flex_col(toRem(10));
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    border-radius: toRem(8);
+    border: toRem(1) solid $white-2;
+    font-family: $comfortaa;
+    color: $base;
+
+    &_title {
+        font-size: toRem(28);
+        margin-top: toRem(40);
+        margin-bottom: toRem(20);
+        font-weight: 600;
+        font-family: $nunito;
+    }
+
+    &_address {
+        font-weight: 700;
+    }
+
+    // src/components/Table.scss
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: toRem(30);
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: toRem(30);
+  
+      th, td {
+        padding: toRem(20) toRem(25);
+        text-align: left;
+        border-bottom: toRem(1) solid #ddd;
+      }
+  
+      th {
+        background-color: #f4f4f4;
+        color: #333;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+  
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}

@@ -3,8 +3,6 @@
 .dashboard_layout {
     @include flex_col(toRem(20));
     align-items: center;
-    // justify-content: center;
-
     width: 100%;
     color: $base;
     font-weight: 500;
