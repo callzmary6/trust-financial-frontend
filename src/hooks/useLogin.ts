@@ -34,7 +34,7 @@ export function useLogin(): UseLoginReturn {
       // Extract profile and token from the response and format as User
       const user = {
         user: data.data?.user,
-        token: data?.token,
+        token: data?.data.token,
       };
 
       console.log('user from hook', user);

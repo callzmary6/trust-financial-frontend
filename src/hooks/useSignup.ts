@@ -30,7 +30,7 @@ export function useSignup(): UseSignupReturn {
     onSuccess: (data: LoginResponse) => {
       const user = {
         user: data.data?.user,
-        token: data?.token,
+        token: data?.data.token,
       };
 
       console.log('user from hook', user);

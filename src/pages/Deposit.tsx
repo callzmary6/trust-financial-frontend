@@ -4,9 +4,16 @@ import DepositCard from "../components/DepositCard";
 import DepositForm from "../components/DepositForm";
 import { investmentPlans } from "../data/investmentPlans";
 import { formatMoney } from "../utils/moneyUtils";
+import { useShowBalance } from "../hooks/useShowBalance";
+import Loader from "../components/Loader";
 
 
 const Deposit = () => {
+
+  const {data: balance, isPending: isLoadingBalance} = useShowBalance();
+  const userBalance = balance?.data.userBalance;
+
+  if(isLoadingBalance) return <Loader />
 
   return (
     <div className="deposit">
@@ -16,7 +23,7 @@ const Deposit = () => {
         </div>
         <div className="deposit_intro_right">
           <div className="deposit_intro_right_refferal">Available balance</div>
-          <div className="deposit_intro_right_code">{formatMoney(1200)}</div>
+          <div className="deposit_intro_right_code">{formatMoney(userBalance as number)}</div>
         </div>
       </div>
 

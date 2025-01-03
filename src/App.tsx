@@ -17,6 +17,7 @@ import AppLayout from './view/AppLayout';
 import Deposit from './pages/Deposit';
 import Withdraw from './pages/Withdraw';
 import ConfirmDeposit from './pages/ConfirmDeposit';
+import Profile from './pages/Profile';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -54,6 +55,7 @@ function App() {
                 <Route path='/app/deposit' element={<Deposit />} />
                 <Route path='/app/deposit/confirm' element={<ConfirmDeposit />} />
                 <Route path='/app/withdraw' element={<Withdraw />} />
+                <Route path='/app/profile' element={<Profile />} />
               </Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>

@@ -1,6 +1,7 @@
 import PaymentForm from "../components/PaymentForm";
 import { investmentPlans } from "../data/investmentPlans";
 import "../styles/pages/ConfirmDeposit.scss";
+import { formatMoney } from "../utils/moneyUtils";
 
 interface SelectedPlanProps {
     name: string;
@@ -33,7 +34,7 @@ function ConfirmDeposit() {
                 Please confirm your deposit
             </div>
             <div className="confirm_deposit_copy">
-                COPY THE COMPANY ETHEREUM WALLET ADDRESS FOR PAYMENT :
+            COPY THE COMPANY {paymentInfo.crypto?.toUpperCase()} WALLET ADDRESS FOR PAYMENT :
             </div>
             <div className="confirm_deposit_address">
                 0x5926564247BEFF0A78fdCe027446E8d2e5bBE754
@@ -49,8 +50,8 @@ function ConfirmDeposit() {
                         <th>Principal Return</th>
                         <th>Principal Withdraw</th>
                         {/* <th>Credit Amount</th> */}
-                        <th>Deposit Fee</th>
-                        <th>Debit Amount</th>
+                        <th>Deposit</th>
+                        {/* <th>Debit Amount</th> */}
                     </tr>
                     </thead>
                     <tbody>
@@ -60,8 +61,8 @@ function ConfirmDeposit() {
                         <td>Yes</td>
                         <td>Available with 0.00% fee</td>
                         {/* <td>$5000.00</td> */}
-                        <td>___</td>
-                        <td>___</td>
+                        <td>{formatMoney(paymentInfo.amount as number)}</td>
+                        {/* <td>___</td> */}
                     </tr>
                     </tbody>
                 </table>

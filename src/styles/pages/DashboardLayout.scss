@@ -11,7 +11,6 @@
         color: $base;
     }
 
-
     &_intro {
         @include flex(space-between, center, 0px);
         background-color: $white;
@@ -43,9 +42,10 @@
                 color: $my-green;
             }
             &_code {
-                font-size: toRem(16);
-                color: $primary-orange;
+                font-size: toRem(18);
+                color: $base;
                 align-self: end;
+                font-weight: 700
             }
         }
     }

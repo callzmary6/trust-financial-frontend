@@ -10,7 +10,7 @@ export interface User {
   balance?: number;
   createdAt: string;
   updatedAt: string;
-  refferalCode: string;
+  referralCode: string;
 }
 
 export interface LoginResponse {
@@ -19,8 +19,9 @@ export interface LoginResponse {
   code: number;
   data: {
     user: User;
+    token: string;
   };
-  token: string;
+  token?: string;
 }
 
 export interface RequestOtpResponse {
@@ -41,6 +42,7 @@ export interface ResetPasswordResponse {
   message: string;
   code: number;
 }
+
 
 export async function signup(
     formObject: SignUpData,

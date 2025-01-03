@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { PaymentData } from '../types/SignupData';
 import { useNavigate } from "react-router";
+import { useDeposit } from "../hooks/useDeposit";
 
 const override = {
   display: 'block',
@@ -17,6 +18,12 @@ const formSchema = z.object({
 });
 
 export default function PaymentForm() {
+
+  const paymentInfoString = localStorage.getItem("paymentInfo")
+  const paymentInfo = JSON.parse(paymentInfoString as string);
+  const { isDepositing, deposit, isSuccess } = useDeposit();
+
+  console.log(paymentInfo)
   const navigate = useNavigate();
 
   const { register, handleSubmit, formState } = useForm<PaymentData>({
@@ -28,10 +35,13 @@ export default function PaymentForm() {
 
   const onSubmit: SubmitHandler<PaymentData> = async (data: PaymentData) => {
     const formData = {
-      ...data
+      ...data, 
+      investmentPlan: paymentInfo.investmentPlan,
+      amount: paymentInfo.amount,
+      paymentMethod: paymentInfo.crypto
     };
-    console.log(formData);
-    navigate("/app/deposit/confirm");
+    deposit(formData)
+    if(isSuccess) navigate("/app/dashboard");
   };
 
   return (
@@ -67,7 +77,7 @@ export default function PaymentForm() {
             )}
         </div>
         <button type="submit">
-            {false ? (
+            {isDepositing ? (
             <SyncLoader
                 role="loader"
                 color="#ffffff"

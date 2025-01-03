@@ -1,8 +1,14 @@
+import Loader from "../components/Loader";
+import { useShowBalance } from "../hooks/useShowBalance";
 import "../styles/pages/Withdraw.scss";
 import { formatMoney } from "../utils/moneyUtils";
 
 
 const Withdraw = () => {
+  const {data: balance, isPending: isLoadingBalance} = useShowBalance();
+  const userBalance = balance?.data.userBalance;
+
+  if(isLoadingBalance) return <Loader />
 
   return (
     <div className="withdraw">
@@ -12,7 +18,7 @@ const Withdraw = () => {
         </div>
         <div className="withdraw_intro_right">
           <div className="withdraw_intro_right_refferal">Available balance</div>
-          <div className="withdraw_intro_right_code">{formatMoney(1200)}</div>
+          <div className="withdraw_intro_right_code">{formatMoney(userBalance as number)}</div>
         </div>
       </div>
 

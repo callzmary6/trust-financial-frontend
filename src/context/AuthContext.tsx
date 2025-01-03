@@ -85,7 +85,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = (userData: UserDet) => {
-    setAccessToken(userData?.token);
+    console.log(userData)
+    setAccessToken(userData.token);
     Cookies.set('user', JSON.stringify(userData?.user), {
       expires: 3,
       secure: true,

@@ -21,6 +21,11 @@ const MainNav = () => {
           text="Withdraw" 
           toRoute="withdraw" 
         />
+
+        <NavItemGroup 
+          text="Profile" 
+          toRoute="profile" 
+        />
     </div>
   );
 };
