@@ -2,7 +2,7 @@
 
 .container {
   min-height: 100vh;
-  padding: 1rem;
+  padding: 1rem 0px;
   background: transparent;
   display: flex;
   justify-content: center;
@@ -10,8 +10,8 @@
 }
 
 .card {
-  width: 100%;
-  max-width: 1200px;
+  width: 95%;
+  // max-width: 1200px;
   background: white;
   border-radius: 0.5rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);

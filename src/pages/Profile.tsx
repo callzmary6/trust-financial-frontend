@@ -25,7 +25,7 @@ const Profile = () => {
   const [usdtTRCAddress, setUsdtTRCAddress] = useState<string>('');
   
   const walletAddresses = data?.data.userProfile;
-  
+
   useEffect(() => {
     if (walletAddresses) {
       setBitcoinAddress(walletAddresses.bitcoinAddress);
@@ -38,7 +38,7 @@ const Profile = () => {
 
   const [profileData] = useState({
     accountName: 'Your name',
-    registrationDate: formatToWeekDay(user?.user.updatedAt as string),
+    registrationDate: formatToWeekDay(user?.user.createdAt as string),
   });
 
   const handleSubmit = () => {
@@ -67,7 +67,7 @@ const Profile = () => {
             {user?.user.email}
           </span>
           <span className={styles.date}>
-            Last updated: {profileData.registrationDate}
+            Registered at: {profileData.registrationDate}
           </span>
         </div>
 
