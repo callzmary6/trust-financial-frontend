@@ -6,10 +6,11 @@ import {
 } from '../services/apiProfile';
 import { CryptoAddresses } from '../types/ProfileData';
 import { useNavigate } from 'react-router';
+import useNavStore from '../store/NavStore';
 
 
 interface UseCryptoAddressReturn {
-  isResetingPassword: boolean;
+  isChangingAddress: boolean;
   cryptoAddress: (credentials: CryptoAddresses) => void;
   cryptoAddressesResponse?: CryptoAddressesResponse;
   isSuccess: boolean;
@@ -18,9 +19,11 @@ interface UseCryptoAddressReturn {
 export function useCryptoAddress(): UseCryptoAddressReturn {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const setActiveSideNav = useNavStore((state)=>state.setActiveSideNav);
+
   const {
     mutate: cryptoAddress,
-    isPending: isResetingPassword,
+    isPending: isChangingAddress,
     data: cryptoAddressesResponse,
     isSuccess,
   }: UseMutationResult<CryptoAddressesResponse, Error, CryptoAddresses> = useMutation<
@@ -29,16 +32,16 @@ export function useCryptoAddress(): UseCryptoAddressReturn {
     CryptoAddresses
   >({
     mutationFn: apiCryptoAddress,
-    onSuccess: (data: CryptoAddressesResponse) => {
+    onSuccess: () => {
+      navigate("/app/dashboard")
+      setActiveSideNav("dashboard")
       toast.success('Profile set successfully');
       queryClient.invalidateQueries({ queryKey: ["show-balance"] });
-      console.log(data);
-      navigate("/app/dashboard")
     },
     onError: (err: Error) => {
       toast.error(err.message || 'failed');
     },
   });
 
-  return { isResetingPassword, cryptoAddress, cryptoAddressesResponse, isSuccess };
+  return { isChangingAddress, cryptoAddress, cryptoAddressesResponse, isSuccess };
 }

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCrypto } from "../services/apiProfile";
 
 
-export function useShowWithdrawal() {
+export function useGetCrypto() {
     const {
         data,
         isPending,

@@ -5,6 +5,8 @@ import {
   DepositResponse,
 } from '../services/apiBalance';
 import { DepositBody } from '../types/BalanceData';
+import { useNavigate } from 'react-router';
+import useNavStore from '../store/NavStore';
 
 
 interface UseDepositDataReturn {
@@ -16,6 +18,9 @@ interface UseDepositDataReturn {
 
 export function useDeposit(): UseDepositDataReturn {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
+  const setActiveSideNav = useNavStore((state)=>state.setActiveSideNav);
+
   const {
     mutate: deposit,
     isPending: isDepositing,
@@ -27,10 +32,11 @@ export function useDeposit(): UseDepositDataReturn {
     DepositBody
   >({
     mutationFn: apiDeposit,
-    onSuccess: (data: DepositResponse) => {
-      toast.success('Deposit request sent. Wait a few minutes for balance to reflect on dashboard');
-      console.log(data);
+    onSuccess: () => {
+      navigate("/app/dashboard")
+      setActiveSideNav("dashboard")
       queryClient.invalidateQueries({ queryKey: ["show-balance"] });
+      toast.success('Deposit request sent. Wait a few minutes for balance to reflect on dashboard', { duration: 6000 });
     },
     onError: (err: Error) => {
       toast.error(err.message || 'failed');
