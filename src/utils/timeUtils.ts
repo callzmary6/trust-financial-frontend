@@ -21,3 +21,28 @@ export const formatToWeekDay = (isoString: string | undefined): string => {
       year: 'numeric',   // 2024
   });
 };
+
+
+export function formatDate(input: string): string {
+  const date = new Date(input);
+
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  };
+
+  // Extract formatted parts
+  const dateParts = date.toLocaleString('en-US', options).split(', ');
+  const monthDayYear = dateParts[0].split('/');
+  const timePart = dateParts[1];
+
+  // Reformat date to 'MMM-DD-YYYY'
+  const formattedDate = `${monthDayYear[0]}-${monthDayYear[1]}-${monthDayYear[2]}`;
+  
+  return `${formattedDate} ${timePart}`;
+}

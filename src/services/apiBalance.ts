@@ -30,6 +30,14 @@ export interface WithdrawalResponse {
     }
 }
 
+export interface ActiveDepositsResponse {
+  success: boolean;
+  code: number;
+  msg: string;
+  data: {
+      activeDeposits: number;
+  }
+}
 
 export interface DepositResponse {
     success: boolean;
@@ -183,5 +191,41 @@ export async function getBalance(): Promise<BalanceResponse> {
       }
   
       throw new Error('Failed to withdraw: Unknown error occurred');
+    }
+  }
+
+
+  export async function activeDeposits(): Promise<ActiveDepositsResponse> {
+
+    const token = getAccessToken();
+
+    if (isTokenExpired(token)) {
+        handleAuthError();
+        throw new Error('Session expired');
+      }
+
+    try {
+      const res = await fetch(`${API_URL}/investment/active-deposits`, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': token ? `Bearer ${token}` : '',
+        },
+      });
+  
+      if (!res.ok) {
+        const errorResponse: ActiveDepositsResponse = await res.json();
+        throw new Error(errorResponse.msg || 'deposit failed');
+      }
+  
+      const response: ActiveDepositsResponse = await res.json();
+      console.log('deposit response:', response);
+      return response;
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error('Failed to deposit: ' + error.message);
+      }
+  
+      throw new Error('Failed to deposit: Unknown error occurred');
     }
   }

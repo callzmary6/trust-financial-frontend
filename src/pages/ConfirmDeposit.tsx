@@ -57,7 +57,7 @@ function ConfirmDeposit() {
                     <tbody>
                     <tr>
                         <td>{name}</td>
-                        <td>{ROI} Daily for {duration}</td>
+                        <td>{ROI}% Daily for {duration}</td>
                         <td>Yes</td>
                         <td>Available with 0.00% fee</td>
                         {/* <td>$5000.00</td> */}

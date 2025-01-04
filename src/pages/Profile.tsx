@@ -1,10 +1,15 @@
+import { useAuth } from '../context/AuthContext';
 import styles from '../styles/pages/Profile.module.scss';
 import { useState } from 'react';
+import { formatToWeekDay } from '../utils/timeUtils';
 
 const Profile = () => {
+  const {user} = useAuth();
+  console.log(user)
+
   const [profileData] = useState({
     accountName: 'Your name',
-    registrationDate: 'Dec-17-2024 05:22:48 PM',
+    registrationDate: formatToWeekDay(user?.user.updatedAt as string),
     walletAddresses: {
       bitcoin: '',
       ethereum: '',
@@ -38,21 +43,17 @@ const Profile = () => {
         <div className={styles.header}>
           <h1>Profile Details</h1>
           <span className={styles.date}>
-            Registered: {profileData.registrationDate}
+            {user?.user.firstName} {user?.user.lastName}
+          </span>
+          <span className={styles.date}>
+            {user?.user.email}
+          </span>
+          <span className={styles.date}>
+            Last updated: {profileData.registrationDate}
           </span>
         </div>
 
         <div className={styles.content}>
-          <div className={styles.field}>
-            <label>Account Name</label>
-            <input
-              type="text"
-              value={profileData.accountName}
-              className={styles.input}
-              readOnly
-            />
-          </div>
-
           <div className={styles.walletSection}>
             <h2>Wallet Addresses</h2>
             <div className={styles.walletFields}>
