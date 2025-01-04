@@ -7,7 +7,7 @@ interface Plans {
     duration: string;
     referralCommission: string;
     minDeposit: number;
-    maxDeposit: number | string;
+    maxDeposit: number;
 }
 
 interface DepositCardProps {
@@ -21,14 +21,9 @@ function DepositCard({plan}: DepositCardProps) {
             <div className="deposit_card_plan">
                 {name}
             </div>
-            {maxDeposit==="Unlimited" &&
             <div className="deposit_card_deposit">
-                Deposit: {formatMoney(minDeposit)} - {maxDeposit} 
-            </div>}
-            {maxDeposit!=="Unlimited" &&
-            <div className="deposit_card_deposit">
-                Deposit: {formatMoney(minDeposit)} - {formatMoney(maxDeposit as number)} 
-            </div>}
+                Deposit: {formatMoney(minDeposit)} - {maxDeposit>=999999999999998? "Unlimited" : formatMoney(maxDeposit as number)} 
+            </div>
             <div className="deposit_card_deposit">
                 Total Profit: {ROI} (%) After {duration}
             </div>

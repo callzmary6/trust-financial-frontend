@@ -14,9 +14,34 @@ const override = {
 
 const formSchema = z.object({
   investmentPlan: z.string().min(1, 'This field is required'),
-  amount: z.string().min(1, 'This field is required'),
+  amount: z.string()
+    .min(1, 'This field is required').max(15, "Impossible sum of money. Review deposit amount"),
+    // .refine((val) => {
+    //   const amount = Number(val);
+    //   return amount >= 30;
+    // }, 'Minimum amount is $30'),
   crypto: z.string().min(1, 'This field is required'),
-});
+})
+.refine((data) => {
+  const selectedPlan = investmentPlans.find(
+    (plan) => plan.name === data.investmentPlan
+  );
+  if (!selectedPlan) return false;
+  return Number(data.amount) >= selectedPlan.minDeposit;
+}, {
+  message: "Amount is below minimum deposit for the selected plan",
+  path: ['amount'], // path of error
+})
+.refine((data) => {
+  const selectedPlan = investmentPlans.find(
+    (plan) => plan.name === data.investmentPlan
+  );
+  if (!selectedPlan) return false;
+  return Number(data.amount) <= selectedPlan?.maxDeposit;
+}, {
+  message: "Amount is above maximum deposit for the selected plan",
+  path: ['amount'], // path of error
+});;
 
 export default function DepositForm() {
   const navigate = useNavigate();

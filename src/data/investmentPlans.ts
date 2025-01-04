@@ -37,7 +37,7 @@ export const investmentPlans = [
         duration: "4 Days",
         referralCommission: "10%",
         minDeposit: 50000,
-        maxDeposit: "Unlimited"
+        maxDeposit: 999999999999999,
     }
 ];
 
