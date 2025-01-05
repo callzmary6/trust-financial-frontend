@@ -1,5 +1,5 @@
 import PaymentForm from "../components/PaymentForm";
-import { investmentPlans } from "../data/investmentPlans";
+import { investmentPlans, megaPlans } from "../data/investmentPlans";
 import "../styles/pages/ConfirmDeposit.scss";
 import { formatMoney } from "../utils/moneyUtils";
 
@@ -13,6 +13,14 @@ interface SelectedPlanProps {
 }
 
 function ConfirmDeposit() {
+    const params = new URLSearchParams(window.location.search);
+    const mega = params.get('mega');
+    const prefferedPlans: SelectedPlanProps[] = [];
+
+    if (mega) prefferedPlans.push(...megaPlans)
+        else prefferedPlans.push(...investmentPlans)
+
+    console.log(prefferedPlans, mega);
 
     const paymentInformation = localStorage?.getItem?.("paymentInfo");
 
@@ -21,7 +29,7 @@ function ConfirmDeposit() {
     console.log(paymentInfo)
 
     function getPlanByName(planName: string) {
-        return investmentPlans.find(plan => plan.name === planName);
+        return prefferedPlans.find(plan => plan.name === planName);
     }
 
     const selectedPlan: SelectedPlanProps | undefined= getPlanByName(paymentInfo.investmentPlan);

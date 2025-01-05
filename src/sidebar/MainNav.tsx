@@ -16,6 +16,11 @@ const MainNav = () => {
           toRoute="deposit" 
         />
 
+        <NavItemGroup 
+          text="Mega Bonus" 
+          toRoute="mega-bonus" 
+        />
+
 
         <NavItemGroup 
           text="Withdraw" 

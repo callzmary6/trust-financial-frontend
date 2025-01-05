@@ -42,6 +42,42 @@ export const investmentPlans = [
 ];
 
 
+export const megaPlans = [
+    {
+        name: "Premium Plan",
+        ROI: 4.2,
+        duration: "48 Days",
+        referralCommission: "10%",
+        minDeposit: 450,
+        maxDeposit: 450
+    },
+    {
+        name: "Elite Plan",
+        ROI: 8.5,
+        duration: "18 Days",
+        referralCommission: "10%",
+        minDeposit: 1500,
+        maxDeposit: 1500
+    },
+    {
+        name: "Standard Plan",
+        ROI: 3.5,
+        duration: "90 Days",
+        referralCommission: "10%",
+        minDeposit: 230,
+        maxDeposit: 230
+    },
+    {
+        name: "Basic Plan",
+        ROI: 2.0,
+        duration: "160 Days",
+        referralCommission: "10%",
+        minDeposit: 100,
+        maxDeposit: 100
+    }
+];
+
+
 export const cryptoOptions = [
     "Bitcoin",
     "Ethereum",

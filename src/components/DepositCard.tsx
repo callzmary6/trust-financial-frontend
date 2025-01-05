@@ -11,19 +11,23 @@ interface Plans {
 }
 
 interface DepositCardProps {
-    plan: Plans
+    plan: Plans;
+    megaPlan?: boolean;
 }
 
-function DepositCard({plan}: DepositCardProps) {
+function DepositCard({plan, megaPlan}: DepositCardProps) {
     const {name, ROI, duration, referralCommission, minDeposit, maxDeposit} = plan;
     return (
         <div className="deposit_card">
             <div className="deposit_card_plan">
                 {name}
             </div>
-            <div className="deposit_card_deposit">
+            {!megaPlan && <div className="deposit_card_deposit">
                 Deposit: {formatMoney(minDeposit)} - {maxDeposit>=999999999999998? "Unlimited" : formatMoney(maxDeposit as number)} 
-            </div>
+            </div>}
+            {megaPlan && <div className="deposit_card_deposit">
+                Deposit: {formatMoney(minDeposit)} 
+            </div>}
             <div className="deposit_card_deposit">
                 Total Profit: {ROI} (%) After {duration}
             </div>

@@ -18,6 +18,7 @@ import Deposit from './pages/Deposit';
 import Withdraw from './pages/Withdraw';
 import ConfirmDeposit from './pages/ConfirmDeposit';
 import Profile from './pages/Profile';
+import MegaBonus from './pages/MegaBonus';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +54,7 @@ function App() {
               >
                 <Route path='/app/dashboard' element={<DashboardLayout />} />
                 <Route path='/app/deposit' element={<Deposit />} />
+                <Route path='/app/mega-bonus' element={<MegaBonus />} />
                 <Route path='/app/deposit/confirm' element={<ConfirmDeposit />} />
                 <Route path='/app/withdraw' element={<Withdraw />} />
                 <Route path='/app/profile' element={<Profile />} />
