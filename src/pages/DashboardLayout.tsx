@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CryptoTable from "../components/CryptoTable";
 import Loader from "../components/Loader";
 import { useAuth } from "../context/AuthContext";
@@ -7,6 +8,7 @@ import { useShowBalance } from "../hooks/useShowBalance";
 import { useShowWithdrawal } from "../hooks/useWithdrawal";
 import "../styles/pages/DashboardLayout.scss";
 import { formatMoney } from "../utils/moneyUtils";
+import { generateReferralLink } from "../utils/authUtils";
 
 const DashboardLayout = () => {
 
@@ -21,6 +23,19 @@ const DashboardLayout = () => {
   const userEarnings = earnings?.data.totalEarnings;
   const userDeposits = deposits?.data.activeDeposits;
 
+  const [copied, setCopied] = useState(false);
+  const referralLink = generateReferralLink(user?.user.referralCode as string);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(referralLink);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   if(isLoadingBalance || isLoadingDeposits || isLoadingWithdrawal || isLoadingEarnings) return <Loader />
 
   return (
@@ -32,7 +47,10 @@ const DashboardLayout = () => {
         </div>
         <div className="dashboard_layout_intro_right">
           <div className="dashboard_layout_intro_right_refferal">Your refferal code:</div>
-          <div className="dashboard_layout_intro_right_code">{user?.user.referralCode}</div>
+          <div className="dashboard_layout_intro_right_code"> 
+            <button onClick={handleCopy} className={`button ${copied? "button_copied": ""}`}>
+              {copied ? 'Copied!' : 'Copy Link'}
+            </button> {user?.user.referralCode}</div>
         </div>
       </div>
 

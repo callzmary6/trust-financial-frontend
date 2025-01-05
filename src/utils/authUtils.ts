@@ -67,3 +67,10 @@ export function logTokenInfo(): void {
     console.error('Error decoding token:', error);
   }
 }
+
+
+// Generate referral link
+export const generateReferralLink = (refCode: string) => {
+  const baseUrl = window.location.origin; // Gets your website's base URL
+  return `${baseUrl}/signup?ref=${encodeURIComponent(refCode)}`;
+};

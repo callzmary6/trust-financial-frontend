@@ -33,8 +33,8 @@ export function useUserWithdrawal(): UseWithdrawDataReturn {
   >({
     mutationFn: apiUserWithdrawal,
     onSuccess: () => {
-    //   navigate("/app/dashboard")
-    //   setActiveSideNav("dashboard")
+      navigate("/app/dashboard")
+      setActiveSideNav("dashboard")
       queryClient.invalidateQueries({ queryKey: ["show-balance", "show-withdrawal", "earnings"] });
       toast.success('Withdrawal request sent. Wait a few minutes', { duration: 6000 });
     },

@@ -1,7 +1,7 @@
 
 // import { Facebook, Linkedin } from 'lucide-react'
 import '../styles/pages/Auth.scss'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import people7 from "../assets/people7.jpg";
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -19,6 +19,8 @@ export default function Signup() {
 
   const navigate = useNavigate()
   const { isSigningUp, signup, signupResponse } = useSignup();
+  const [searchParams] = useSearchParams();
+  const ref = searchParams?.get('ref');
 
   const formSchema = z.object({
     lastName: z.string().min(1, 'This field is required'),
@@ -38,6 +40,9 @@ export default function Signup() {
   const { register, handleSubmit, formState } = useForm<SignUpData>({
     resolver: zodResolver(formSchema, {}, { raw: true }),
     mode: 'onBlur',
+    defaultValues: {
+      refferalCode: ref || ''
+    }
   });
 
   const { errors } = formState;

@@ -40,13 +40,30 @@
             &_refferal {
                 font-size: toRem(16);
                 color: $my-green;
+                align-self: end;
+                letter-spacing: toRem(1);
             }
             &_code {
                 font-size: toRem(18);
                 color: $base;
                 align-self: end;
-                font-weight: 700
+                font-weight: 700;
             }
+
+            .button {
+                padding: toRem(8) toRem(10);
+                margin-right: toRem(5);
+                font-size: toRem(14);
+                border: none;
+                border-radius: toRem(3);
+                background: $secondary-brown;
+                color: white;
+                cursor: pointer;
+              
+                &_copied {
+                  background: $my-green;
+                }
+              }
         }
     }
 
