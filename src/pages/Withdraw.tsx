@@ -4,7 +4,12 @@ import { useShowBalance } from "../hooks/useShowBalance";
 import "../styles/pages/Withdraw.scss";
 import styles from "../styles/pages/Profile.module.scss"
 import { formatMoney } from "../utils/moneyUtils";
-import { useState } from "react";
+import { WithdrawData } from "../types/BalanceData";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { cryptoOptions } from "../data/investmentPlans";
+import { useUserWithdrawal } from "../hooks/useUserWithdrawal";
 
 const override = {
   display: 'block',
@@ -14,15 +19,34 @@ const override = {
 
 const Withdraw = () => {
   const {data: balance, isPending: isLoadingBalance} = useShowBalance();
+  const { isWithdrawing, withdraw  } = useUserWithdrawal();
+  
   const userBalance = balance?.data.userBalance;
 
-  const [address, setAddress] = useState<string>('');
-  const [withdrawalAmount, setWithdrawalAmount] = useState<number>();
+    const formSchema = z.object({
+      walletAddress: z.string().min(1, 'This field is required'),
+      amount: z.string().min(1, 'This field is required'),
+      withdrawalMethod: z.string().min(1, 'This field is required'),
+    })
+  
+    const { register, handleSubmit, formState } = useForm<WithdrawData>({
+      resolver: zodResolver(formSchema, {}, { raw: true }),
+      mode: 'onBlur',
+    });
+  
+    const { errors } = formState;
+  
+    const onSubmit: SubmitHandler<WithdrawData> = async (data: WithdrawData) => {
+      const formData = {
+        ...data, amount: Number(data.amount)
+      };
+      withdraw(formData);
+    };
 
   if(isLoadingBalance) return <Loader />
 
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)} className="form">
       <div className="withdraw">
         <div className="withdraw_intro">
           <div className="withdraw_intro_left">
@@ -50,26 +74,55 @@ const Withdraw = () => {
                 <label>Recipient Address</label>
                 <input
                   type="text"
-                  value={address}
-                  placeholder="Enter your Wallet Address"
                   className={styles.input}
-                  onChange={(e) => setAddress(e.target.value)}
+                  id="walletAddress"
+                  placeholder="Enter your address"
+                  {...register('walletAddress', { required: true })}
                 />
+                {errors?.walletAddress?.message &&
+                typeof errors.walletAddress.message === 'string' && (
+                <span className={styles.error}>
+                {errors.walletAddress.message}
+                </span>
+                )}
               </div>
+
               <div className={styles.field}>
-                <label>Withdrawal Amount</label>
+                <label>Withdrawal Amount (min: $30)</label>
                 <input
                   type="number"
-                  value={withdrawalAmount}
-                  placeholder="Enter Amount"
                   className={styles.input}
-                  onChange={(e) => setWithdrawalAmount(Number(e.target.value))}
+                  id="amount"
+                  placeholder="Enter amount"
+                  {...register('amount', { required: true })}
                 />
+                {errors?.amount?.message &&
+                typeof errors.amount.message === 'string' && (
+                <span className={styles.error}>
+                {errors.amount.message}
+                </span>
+                )}
+              </div>
+
+
+              <div className={styles.field}>
+                <label>Withdrawal Method</label>
+                <select
+                  className={styles.select}
+                  id="withdrawalMethod"
+                  {...register('withdrawalMethod', { required: true })}
+                >
+                  {cryptoOptions.map((crypto, index) => (
+                    <option key={index} value={crypto}>
+                      {crypto}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
-          <button className={styles.submitButton}  disabled={false}>
-          {false? (
+          <button className={styles.submitButton}  disabled={isWithdrawing}>
+          {isWithdrawing? (
                 <SyncLoader
                   role="loader"
                   color="#ffffff"
@@ -85,7 +138,7 @@ const Withdraw = () => {
 
       </div>
     </div>
-    </>
+    </form>
   );
 };
 

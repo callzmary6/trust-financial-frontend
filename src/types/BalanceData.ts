@@ -5,3 +5,10 @@ export interface DepositBody {
     payerAddress: string;
     transactionId: string;
 }
+
+
+ export interface WithdrawData {
+    walletAddress: string;
+    amount: number;
+    withdrawalMethod: string;
+}

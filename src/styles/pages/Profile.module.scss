@@ -54,6 +54,24 @@
 
 .input {
   width: 100%;
+  height: toRem(45);
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+  background-color: #f7fafc;
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+}
+
+.select {
+  width: 100%;
+  height: toRem(45);
   padding: 0.75rem;
   border: 1px solid #e2e8f0;
   border-radius: 0.25rem;
@@ -85,6 +103,8 @@
 
 .submitButton {
   display: inline-block;
+  width: toRem(110);
+  height: toRem(50);
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
@@ -117,4 +137,21 @@
   .content {
     padding: 1.5rem;
   }
+}
+
+.error {
+  font-family: $font-work-sans;
+  font-size: toRem(14);
+  font-weight: 400;
+  line-height: toRem(5);
+  text-align: left;
+  color: red;
+
+  @include media('<=phone-tab') {
+      font-size: toRem(12);
+  }
+}
+
+form {
+  background-color: transparent;
 }

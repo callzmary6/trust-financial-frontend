@@ -1,4 +1,4 @@
-import { DepositBody } from "../types/BalanceData";
+import { DepositBody, WithdrawData } from "../types/BalanceData";
 import { getAccessToken, handleAuthError, isTokenExpired } from "../utils/authUtils";
 
 const API_URL = 'https://trust-financials-backend.onrender.com/api/v1';
@@ -43,6 +43,12 @@ export interface DepositResponse {
     success: boolean;
     code: number;
     msg: string;
+}
+
+export interface UserWithdrawalResponse {
+  success: boolean;
+  code: number;
+  msg: string;
 }
 
 
@@ -229,3 +235,42 @@ export async function getBalance(): Promise<BalanceResponse> {
       throw new Error('Failed to deposit: Unknown error occurred');
     }
   }
+
+
+  export async function userWithdrawal(requestBody: WithdrawData): Promise<UserWithdrawalResponse> {
+
+    const token = getAccessToken();
+
+    if (isTokenExpired(token)) {
+        handleAuthError();
+        throw new Error('Session expired');
+      }
+
+    try {
+      const res = await fetch(`${API_URL}/investment/withdraw-funds`, {
+        method: 'POST',
+        body: JSON.stringify(requestBody),
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': token ? `Bearer ${token}` : '',
+        },
+      });
+  
+      if (!res.ok) {
+        const errorResponse: UserWithdrawalResponse = await res.json();
+        throw new Error(errorResponse.msg || 'Withdrawal failed');
+      }
+  
+      const response: UserWithdrawalResponse = await res.json();
+      console.log('Withdrawal response:', response);
+      return response;
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error('Failed to withdraw: ' + error.message);
+      }
+  
+      throw new Error('Failed to withdraw: Unknown error occurred');
+    }
+  }
+  
+ 
