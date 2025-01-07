@@ -19,7 +19,7 @@ const formSchema = z.object({
 
 export default function PaymentForm() {
 
-  const paymentInfoString = localStorage.getItem("paymentInfo")
+  const paymentInfoString = localStorage.getItem("paymentInfo");
   const paymentInfo = JSON.parse(paymentInfoString as string);
   const { isDepositing, deposit, isSuccess } = useDeposit();
 

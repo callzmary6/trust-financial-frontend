@@ -19,6 +19,9 @@ import Withdraw from './pages/Withdraw';
 import ConfirmDeposit from './pages/ConfirmDeposit';
 import Profile from './pages/Profile';
 import MegaBonus from './pages/MegaBonus';
+import AdminDashboard from './admin/AdminDashboard';
+import Adminwithdrawal from './admin/AdminWithdrawal';
+import AdminUsers from './admin/ASdminUsers';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -58,6 +61,8 @@ function App() {
                 <Route path='/app/deposit/confirm' element={<ConfirmDeposit />} />
                 <Route path='/app/withdraw' element={<Withdraw />} />
                 <Route path='/app/profile' element={<Profile />} />
+                <Route path='/app/admin-withdraw' element={<Adminwithdrawal />} />
+                <Route path='/app/admin-users' element={<AdminUsers />} />
               </Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>

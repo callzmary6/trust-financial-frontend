@@ -9,6 +9,7 @@ import { useShowWithdrawal } from "../hooks/useWithdrawal";
 import "../styles/pages/DashboardLayout.scss";
 import { formatMoney } from "../utils/moneyUtils";
 import { generateReferralLink } from "../utils/authUtils";
+import AdminDashboard from "../admin/AdminDashboard";
 
 const DashboardLayout = () => {
 
@@ -35,6 +36,7 @@ const DashboardLayout = () => {
       console.error('Failed to copy:', err);
     }
   };
+  if (user?.user.email==="keengsleyudeh@gmail.com") return <AdminDashboard/>
 
   if(isLoadingBalance || isLoadingDeposits || isLoadingWithdrawal || isLoadingEarnings) return <Loader />
 
