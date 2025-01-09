@@ -19,7 +19,6 @@ import Withdraw from './pages/Withdraw';
 import ConfirmDeposit from './pages/ConfirmDeposit';
 import Profile from './pages/Profile';
 import MegaBonus from './pages/MegaBonus';
-import AdminDashboard from './admin/AdminDashboard';
 import Adminwithdrawal from './admin/AdminWithdrawal';
 import AdminUsers from './admin/ASdminUsers';
 

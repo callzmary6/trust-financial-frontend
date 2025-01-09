@@ -1,8 +1,15 @@
 
+import Loader from "../components/Loader";
+import { useAdminUsers } from "../hooks/useAdminUsers";
 import "../styles/admin/AdminForm.scss";
+import UsersTableData from "./UsersTableData";
 
 function AdminUsers() {
 
+    const {data: users, isPending} = useAdminUsers();
+
+    if(isPending) return <Loader />
+    
     return (
         <div className="confirm_deposit">
             <div className="confirm_deposit_title">
@@ -16,27 +23,17 @@ function AdminUsers() {
             <div className="table-container">
                 <table>
                     <thead>
-                    <tr>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th>Plan</th>
-                        <th>Payer Address</th>
-                        <th>Amount</th>
-                        <th></th>
-                    </tr>
+                        <tr>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Email</th>
+                            <th>Refferals</th>
+                            <th>Balance</th>
+                            <th></th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>King</td>
-                        <td>67% Daily for uration</td>
-                        <td>Yes</td>
-                        <td>Available with 0.00% fee lorgkregkjerjhnh;rwgreththhktnk</td>
-                        <td>$560</td>
-                        <td className="actions">
-                            <button className="actions_delete_button">Decline</button>
-                            <button className="actions_approve_button">Approve</button>
-                        </td>
-                    </tr>
+                        {users?.map((user)=> <UsersTableData key={user._id} user={user}/>)}
                     </tbody>
                 </table>
             </div>

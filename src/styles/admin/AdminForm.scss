@@ -52,6 +52,7 @@
 
         .actions {
           @include flex(space-between, center, toRem(0));
+
           &_delete_button {
             padding: toRem(8);
             background-color: $orange-button;
@@ -60,19 +61,46 @@
             font-size: toRem(14);
             font-weight: 600;
             cursor: pointer;
-            width: toRem(70);
+            width: toRem(80);
           }
+
           &_approve_button {
-            padding: toRem(8);
             background-color: $my_blue;
+            padding: toRem(8);
             color: $white;
             border-radius: toRem(3);
             font-size: toRem(14);
             font-weight: 600;
-          flex-shrink: 0;
-          margin-left: toRem(10);
+            flex-shrink: 0;
+            margin-left: toRem(10);
             cursor: pointer;
+            width: toRem(85);
+          }
 
+          &_done {
+            background-color: $my_green;
+            padding: toRem(8);
+            color: $white;
+            border-radius: toRem(3);
+            font-size: toRem(14);
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-left: toRem(10);
+            cursor: pointer;
+            width: toRem(85);
+          }
+
+          &_freeze {
+            background-color: $secondary-blue;
+            padding: toRem(8);
+            color: $white;
+            border-radius: toRem(3);
+            font-size: toRem(14);
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-left: toRem(10);
+            cursor: pointer;
+            width: toRem(85);
           }
 
         }

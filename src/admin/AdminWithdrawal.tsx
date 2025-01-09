@@ -1,7 +1,12 @@
+import { useAdminWithdraw } from "../hooks/useAdminWithdrwal";
 import "../styles/admin/AdminForm.scss";
 import WithdrawalTableData from "./WithdrawalTableData";
+import Loader from "../components/Loader";
 
 function Adminwithdrawal() {
+    const {data: withdrawData, isPending } = useAdminWithdraw();
+
+    if (isPending) return <Loader />
 
     return (
         <div className="confirm_deposit">
@@ -9,9 +14,8 @@ function Adminwithdrawal() {
                 Withdrawals
             </div>
             <div className="confirm_deposit_address">
-            Approve or decline withdrawal requests.
+                Approve or decline withdrawal requests.
             </div>
-
 
             <div className="table-container">
                 <table>
@@ -19,7 +23,6 @@ function Adminwithdrawal() {
                     <tr>
                         <th>User</th>
                         <th>Date</th>
-                        <th>Plan</th>
                         <th>Recipient Address</th>
                         <th>Token</th>
                         <th>Amount</th>
@@ -27,7 +30,7 @@ function Adminwithdrawal() {
                     </tr>
                     </thead>
                     <tbody>
-                        <WithdrawalTableData />
+                        {withdrawData?.map((data)=> (<WithdrawalTableData key={data._id} data={data}/>))}
                     </tbody>
                 </table>
             </div>

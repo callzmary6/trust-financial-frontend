@@ -1,4 +1,5 @@
 
+import Loader from "../components/Loader";
 import { useAdminDeposit } from "../hooks/useAdminDeposit";
 import "../styles/admin/AdminForm.scss";
 import DepositTableData, { Deposit } from "./DepositTableData";
@@ -6,10 +7,12 @@ import DepositTableData, { Deposit } from "./DepositTableData";
 
 function AdminDashboard() {
 
-    const { data, isPending, error } = useAdminDeposit();
-    const allDeposits: Deposit[] | undefined = data?.data;
-    console.log(allDeposits)
+    const { data, isPending } = useAdminDeposit();
 
+    if (isPending) return <Loader />
+
+    const allDeposits: Deposit[] | undefined = data?.data;
+    
     return (
         <div className="confirm_deposit">
             <div className="confirm_deposit_title">

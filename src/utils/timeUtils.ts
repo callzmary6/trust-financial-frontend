@@ -22,6 +22,17 @@ export const formatToWeekDay = (isoString: string | undefined): string => {
   });
 };
 
+export const formatDateWithTime = (dateString: string): string => {
+  const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+  };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+}
+
 
 export function formatDate(input: string): string {
   const date = new Date(input);
