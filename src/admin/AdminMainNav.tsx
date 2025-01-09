@@ -13,7 +13,7 @@ const AdminMainNav = () => {
         />
 
         <NavItemGroup 
-          text="Withdraws" 
+          text="Withdrawals" 
           toRoute="admin-withdraw" 
         />
 

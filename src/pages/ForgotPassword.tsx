@@ -20,7 +20,7 @@
 //         <div className="absolute left_8 top_8">
 //           <div className="flex items_center text_xl font_semibold text_blue_500">
 //             <span className="mr_2 rounded border_2 border_blue_500 p_1">□</span>
-//             AccunarHub
+//             AcunarTech
 //           </div>
 //         </div>
 //       </div>
@@ -30,7 +30,7 @@
 //         <div className="mx_auto w_full max_w_md space_y_8">
 //           <div className="space_y_2">
 //             <h1 className="text_3xl font_bold tracking_tight title_color">
-//               AccunarHub
+//               AcunarTech
 //             </h1>
 //             <p className="text_slate_400">
 //               OTPCode has been sent to your otpCode
@@ -109,7 +109,7 @@ export default function RequestOtpCode() {
         <div className="absolute left_8 top_8">
           <div className="flex items_center text_xl font_semibold text_blue_500">
             <span className="mr_2 rounded border_2 border_blue_500 p_1">□</span>
-              AccunarTech
+              AcunarTech
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function RequestOtpCode() {
         <div className="mx_auto w_full max_w_md space_y_8">
           <div className="space_y_2">
             <h1 className="text_3xl font_bold tracking_tight title_color">
-              AccunarTech
+              AcunarTech
             </h1>
             <p className="text_slate_400">
               OTP has been sent to your email

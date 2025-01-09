@@ -21,7 +21,7 @@ const Hero = () => {
       id: 1,
       image: people1,
       title: 'Invest with confidence',
-      text: "AccunarHub will generate your ideal and passive income stream.",
+      text: "AcunarTech will generate your ideal and passive income stream.",
     },
     {
       id: 2,

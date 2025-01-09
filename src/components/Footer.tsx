@@ -14,7 +14,7 @@ function Footer() {
                 <p>Email: admin@accunartechlimited.com</p>
             </div>
             <div className="copyright">
-            &copy; 2024 AccunarTech Limited. All Rights Reserved.
+            &copy; 2024 AcunarTech Limited. All Rights Reserved.
             </div>
         </div>
     </footer>

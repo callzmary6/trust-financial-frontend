@@ -8,7 +8,7 @@ function Sidebar() {
     const {user} = useAuth();
     return (
         <>
-            <div className={s.dash_title}>AccunarTech</div>
+            <div className={s.dash_title}>AcunarTech</div>
             <div className={s.sidebar}>
                 {user?.user.email !== "keengsleyudeh@gmail.com" && <MainNav />}
                 {user?.user.email === "keengsleyudeh@gmail.com" && <AdminMainNav />}
