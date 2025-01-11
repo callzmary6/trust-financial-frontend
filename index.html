@@ -1,13 +1,52 @@
-<!doctype html>
+
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AcunarTech</title>
+    <title>Acunar</title>
+
+    <style>
+      select {
+        right: 0.7rem;
+        top: 0rem;
+        width: 4.0rem;
+        height: 1rem;
+        border-radius: 3px;
+        outline: none;
+        border: none;
+        color: #333333;
+        visibility: visible;
+      }
+      .goog-te-gadget {
+        height: 0px;
+        position: absolute;
+        right: 2rem;
+        top: 0.3rem;
+        visibility: hidden;
+      }
+
+      .goog-te-gadget span {
+        display: none !important;
+      }
+
+      body {
+        position: relative;
+      }
+    </style>
+
   </head>
   <body>
+    <div id="google_translate_element"></div>
     <div id="root"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+      </script>
+      
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
