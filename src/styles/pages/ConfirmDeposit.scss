@@ -16,10 +16,27 @@
         margin-bottom: toRem(20);
         font-weight: 600;
         font-family: $nunito;
+
+        @include media("<=tablet") {
+          font-size: toRem(22);
+        }
     }
+
+    &_copy {
+      font-weight: 700;
+      @include media("<=tablet") {
+        font-size: toRem(12);
+        text-align: center;
+        max-width: toRem(300);
+      }
+  }
+
 
     &_address {
         font-weight: 700;
+        @include media("<=tablet") {
+          font-size: toRem(12);
+        }
     }
 
     // src/components/Table.scss
@@ -35,6 +52,8 @@
       background-color: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       margin-bottom: toRem(30);
+
+      overflow-x: scroll;
   
       th, td {
         padding: toRem(20) toRem(25);
@@ -57,5 +76,9 @@
         background-color: #f1f1f1;
       }
     }
+  }
+
+  .payment {
+    width: 115%;
   }
 }

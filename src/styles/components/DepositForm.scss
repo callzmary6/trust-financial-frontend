@@ -24,8 +24,8 @@ form {
         border: toRem(1) solid $white-3;
         background-color: $white-5;
 
-        @include media('<=phone-tab') {
-            width: toRem(350);
+        @include media('<=tablet') {
+            width: toRem(310);
         }
     }
 
@@ -47,8 +47,8 @@ form {
         cursor: pointer;
         margin-top: toRem(10);
 
-        @include media('<=phone-tab') {
-            width: toRem(150);
+        @include media('<=tablet') {
+            width: toRem(100);
         }
 
 

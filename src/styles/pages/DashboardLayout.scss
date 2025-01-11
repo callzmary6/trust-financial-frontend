@@ -9,6 +9,11 @@
 
     svg {
         color: $base;
+
+        @include media("<=tablet") {
+            width: toRem(40);
+            height: toRem(40);
+        }
     }
 
     &_intro {
@@ -19,6 +24,13 @@
         width: 95%;
         height: toRem(120);
 
+        @include media("<=tablet") {
+            padding: toRem(20);
+            @include flex_col(toRem(10));
+            font-size: toRem(14);
+            height: auto
+        }
+
         &_left {
             @include flex_col(toRem(20));
             margin-left: toRem(20);
@@ -27,9 +39,18 @@
                 font-size: toRem(28);
                 font-weight: 600;
                 color: $third;
+
+                @include media("<=tablet") {
+                    font-size: toRem(25);
+                    font-weight: 600;
+                }
             }
             &_dash {
                 font-size: toRem(16);
+
+                @include media("<=tablet") {
+                    display: none;
+                }
             }
         }
 
@@ -37,17 +58,33 @@
             @include flex_col(toRem(20));
             margin-right: toRem(20);
 
+            @include media("<=tablet") {
+                gap: toRem(5);
+                justify-content: center;
+            }
+
             &_refferal {
                 font-size: toRem(16);
                 color: $my-green;
                 align-self: end;
                 letter-spacing: toRem(1);
+
+                @include media("<=tablet") {
+                    font-size: toRem(14);
+                    letter-spacing: toRem(1);
+                    align-self: center;
+                    text-align: center;
+                }
             }
             &_code {
                 font-size: toRem(18);
                 color: $base;
                 align-self: end;
                 font-weight: 700;
+
+                @include media("<=tablet") {
+                    font-size: toRem(16);
+                }
             }
 
             .button {
@@ -59,6 +96,13 @@
                 background: $secondary-brown;
                 color: white;
                 cursor: pointer;
+                border: none;
+                outline: none;
+
+                @include media("<=tablet") {
+                    font-size: toRem(11);
+                    padding: toRem(6) toRem(6);
+                }
               
                 &_copied {
                   background: $my-green;
@@ -71,6 +115,19 @@
         @include flex(space-between, center, toRem(10));
         width: 95%;
 
+        @include media("<=tablet") {
+            width: 95%;
+            display: grid;
+            grid-template-columns: toRem(340) toRem(330);
+            column-gap: toRem(10);
+        }
+
+        @include media("<=phone-tab") {
+            @include flex_col(toRem(10));
+            width: 100%;
+        }
+        
+
         &_balance {
             width: toRem(250);
             height: toRem(120);
@@ -79,6 +136,12 @@
             padding: toRem(10) toRem(10);
             border: toRem(1) solid $white-2;
             border-radius: toRem(8);
+
+            @include media("<=tablet") {
+                width: 95%;
+                padding-left: toRem(30);
+                gap: toRem(25);
+            }
 
             &_amt {
                 font-weight: 600;
@@ -98,11 +161,19 @@
         width: 95%;
         @include flex(start, start, toRem(30));
 
+        @include media("<=tablet") {
+            @include flex_col(toRem(5));
+        }
+
         &_crypto {
             width: 60%;
             background-color: $white;
             border: toRem(1) solid $white-2;
             border-radius: toRem(8);
+
+            @include media("<=tablet") {
+                width: 100%;
+            }
         }
 
         &_history {
@@ -112,6 +183,10 @@
             border: toRem(1) solid $white-2;
             border-radius: toRem(8);
             padding: toRem(20);
+
+            @include media("<=tablet") {
+                width: 100%;
+            }
 
             &_title {
                 font-weight: 600;

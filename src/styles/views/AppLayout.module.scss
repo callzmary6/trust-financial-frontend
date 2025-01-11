@@ -5,6 +5,7 @@
 /* Base styles */
 
 .appLayout {
+  position: relative;
   display: grid;
   grid-template-areas:
     "sidebar header"
@@ -12,6 +13,12 @@
   grid-template-columns: toRem(250) 1fr;
   grid-template-rows: toRem(80) 1fr;
   height: 100vh; /* Full viewport height */
+
+  @include media("<=tablet") {
+    grid-template-areas:
+    "header header"
+    "main-content main-content";
+}
 }
 
 /* Header styles */
@@ -25,6 +32,22 @@
 .sidebar {
   grid-area: sidebar;
   background-color: #1e293b;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+
+  @include media("<=tablet") {
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 100vh;
+    // transform: translateX(-100%); /* Initially hide sidebar off-screen */
+    transform: translateX(-100%); /* Initially hide sidebar off-screen */
+  }
+
+  &_active {
+    transform: translateX(0); /* Slide in when active */
+  }
 }
 
 /* Main content styles */
@@ -33,4 +56,9 @@
   overflow-y: auto; /* Allows scrolling if content is large */
   background-color: $white-2;
   padding: toRem(30);
+
+  @include media("<=tablet") {
+    overflow-x: scroll;
+}
+  
 }

@@ -12,6 +12,11 @@
     font-weight: 600;
     height: toRem(70);
 
+    @include media("<=phone-tab") {
+        margin-top: toRem(5);
+        font-size: toRem(17);
+    }
+
 }
 
 .sidebar {

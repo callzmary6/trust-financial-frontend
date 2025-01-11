@@ -20,6 +20,7 @@
     &_address {
         font-weight: 700;
         font-size: toRem(18);
+        text-align: center;
     }
 
     // src/components/Table.scss
@@ -35,14 +36,12 @@
       background-color: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       margin-bottom: toRem(30);
+      
   
       th, td {
         padding: toRem(20) toRem(20);
         text-align: left;
         border-bottom: toRem(1) solid #ddd;
-
-        
-
       }
 
       td {

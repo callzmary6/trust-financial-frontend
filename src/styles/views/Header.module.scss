@@ -2,8 +2,12 @@
 
 .cont {
     @include flex(flex-end, center, toRem(0));
-    padding-right: toRem(30);
+    padding: 0px toRem(30);
     width: 100%;
+
+    @include media("<=tablet") {
+        @include flex(space-between, center, toRem(0));
+    }
 
 
     &_login button {
@@ -23,5 +27,4 @@
             opacity: 0.9;
         }
     }
-
 }

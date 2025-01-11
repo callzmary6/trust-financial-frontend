@@ -19,14 +19,30 @@
         width: 95%;
         height: toRem(120);
 
+        @include media("<=tablet") {
+            gap: toRem(10);
+            height: toRem(110);
+        }
+
         &_left {
             @include flex_col(toRem(20));
             margin-left: toRem(20);
+            
 
             &_name {
                 font-size: toRem(28);
                 font-weight: 600;
                 color: $third;
+
+
+                @include media("<=tablet") {
+                    font-size: toRem(24);
+                }
+
+                @include media("<=phone-tab") {
+                    font-size: toRem(21);
+                    max-width: toRem(150);
+                }
             }
             &_dash {
                 font-size: toRem(16);
@@ -37,15 +53,29 @@
             @include flex_col(toRem(20));
             margin-right: toRem(20);
 
+            @include media("<=tablet") {
+                gap: toRem(5);
+            }
+
             &_refferal {
                 font-size: toRem(16);
                 color: $my-green;
+                
+                @include media("<=tablet") {
+                    font-size: toRem(14);
+                    align-self: end;
+                }
             }
             &_code {
                 font-size: toRem(18);
                 color: $base;
                 align-self: end;
-                font-weight: 700
+                font-weight: 700;
+
+                @include media("<=tablet") {
+                    align-self: end;
+                    font-size: toRem(16);
+                }
             }
         }
     }
@@ -55,6 +85,13 @@
         font-size: toRem(24);
         width: 95%;
         margin: toRem(30) 0px toRem(5) 0px;
+
+
+        @include media("<=tablet") {
+            font-size: toRem(18);
+            margin: toRem(10) 0px toRem(5) 0px;
+            justify-content: center;
+        }
     }
 
     &_depositCard {
@@ -63,12 +100,25 @@
         gap: toRem(20);
         align-items: center;
         justify-content: space-between;
+
+        @include media("<=tablet") {
+            grid-template-columns: toRem(320) toRem(320);
+        }
+
+        @include media("<=phone-tab") {
+            grid-template-columns: toRem(345);
+        }
     }
 
     &_depositForm {
         @include flex(start, center, 0px);
         width: 95%;
         margin: toRem(30) 0px toRem(5) 0px;
+
+        @include media("<=phone-tab") {
+            justify-content: center;
+        }
+        
     }
 
 }

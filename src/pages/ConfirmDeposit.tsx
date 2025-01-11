@@ -75,7 +75,9 @@ function ConfirmDeposit() {
                     </tbody>
                 </table>
 
-                <PaymentForm />
+                <div className="payment">
+                    <PaymentForm />
+                </div>
             </div>
         </div>
     )

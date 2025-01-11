@@ -46,7 +46,7 @@ const Withdraw = () => {
   if(isLoadingBalance) return <Loader />
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form">
+    <>
       <div className="withdraw">
         <div className="withdraw_intro">
           <div className="withdraw_intro_left">
@@ -63,82 +63,82 @@ const Withdraw = () => {
         </div>
       </div>
 
+      <form onSubmit={handleSubmit(onSubmit)} className="form_withdraw">  
+        <div className={styles.container}>
+        <div className={styles.card}>
+          <div className={styles.content}>
+            <div className={styles.walletSection}>
+              {/* <h2>Wallet Addresses</h2> */}
+              <div className={styles.walletFields}>
+                <div className={styles.field}>
+                  <label>Recipient Address</label>
+                  <input
+                    type="text"
+                    className={styles.input}
+                    id="walletAddress"
+                    placeholder="Enter your address"
+                    {...register('walletAddress', { required: true })}
+                  />
+                  {errors?.walletAddress?.message &&
+                  typeof errors.walletAddress.message === 'string' && (
+                  <span className={styles.error}>
+                  {errors.walletAddress.message}
+                  </span>
+                  )}
+                </div>
 
-      <div className={styles.container}>
-      <div className={styles.card}>
-        <div className={styles.content}>
-          <div className={styles.walletSection}>
-            {/* <h2>Wallet Addresses</h2> */}
-            <div className={styles.walletFields}>
-              <div className={styles.field}>
-                <label>Recipient Address</label>
-                <input
-                  type="text"
-                  className={styles.input}
-                  id="walletAddress"
-                  placeholder="Enter your address"
-                  {...register('walletAddress', { required: true })}
-                />
-                {errors?.walletAddress?.message &&
-                typeof errors.walletAddress.message === 'string' && (
-                <span className={styles.error}>
-                {errors.walletAddress.message}
-                </span>
-                )}
-              </div>
-
-              <div className={styles.field}>
-                <label>Withdrawal Amount (min: $30)</label>
-                <input
-                  type="number"
-                  className={styles.input}
-                  id="amount"
-                  placeholder="Enter amount"
-                  {...register('amount', { required: true })}
-                />
-                {errors?.amount?.message &&
-                typeof errors.amount.message === 'string' && (
-                <span className={styles.error}>
-                {errors.amount.message}
-                </span>
-                )}
-              </div>
+                <div className={styles.field}>
+                  <label>Withdrawal Amount (min: $30)</label>
+                  <input
+                    type="number"
+                    className={styles.input}
+                    id="amount"
+                    placeholder="Enter amount"
+                    {...register('amount', { required: true })}
+                  />
+                  {errors?.amount?.message &&
+                  typeof errors.amount.message === 'string' && (
+                  <span className={styles.error}>
+                  {errors.amount.message}
+                  </span>
+                  )}
+                </div>
 
 
-              <div className={styles.field}>
-                <label>Withdrawal Method</label>
-                <select
-                  className={styles.select}
-                  id="withdrawalMethod"
-                  {...register('withdrawalMethod', { required: true })}
-                >
-                  {cryptoOptions.map((crypto, index) => (
-                    <option key={index} value={crypto}>
-                      {crypto}
-                    </option>
-                  ))}
-                </select>
+                <div className={styles.field}>
+                  <label>Withdrawal Method</label>
+                  <select
+                    className={styles.select}
+                    id="withdrawalMethod"
+                    {...register('withdrawalMethod', { required: true })}
+                  >
+                    {cryptoOptions.map((crypto, index) => (
+                      <option key={index} value={crypto}>
+                        {crypto}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
+            <button className={styles.submitButton}  disabled={isWithdrawing}>
+            {isWithdrawing? (
+                  <SyncLoader
+                    role="loader"
+                    color="#ffffff"
+                    cssOverride={override}
+                    size="0.7rem"
+                    aria-label="Loading Spinner"
+                  />
+                ) : (
+                  'Submit'
+                )}
+            </button>
           </div>
-          <button className={styles.submitButton}  disabled={isWithdrawing}>
-          {isWithdrawing? (
-                <SyncLoader
-                  role="loader"
-                  color="#ffffff"
-                  cssOverride={override}
-                  size="0.7rem"
-                  aria-label="Loading Spinner"
-                />
-              ) : (
-                'Submit'
-              )}
-          </button>
         </div>
-
       </div>
-    </div>
     </form>
+    </>
   );
 };
 
