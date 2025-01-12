@@ -10,6 +10,8 @@ import "../styles/pages/DashboardLayout.scss";
 import { formatMoney } from "../utils/moneyUtils";
 import { generateReferralLink } from "../utils/authUtils";
 import AdminDashboard from "../admin/AdminDashboard";
+import Ticker from "../components/Ticker";
+
 
 const DashboardLayout = () => {
 
@@ -101,6 +103,8 @@ const DashboardLayout = () => {
           </div>
         </div>
       </div>
+
+      <Ticker/>
     </div>
   );
 };

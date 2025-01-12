@@ -7,7 +7,6 @@ import { formatMoney } from "../utils/moneyUtils";
 import { useShowBalance } from "../hooks/useShowBalance";
 import Loader from "../components/Loader";
 
-
 const Deposit = () => {
 
   const {data: balance, isPending: isLoadingBalance} = useShowBalance();
@@ -26,7 +25,6 @@ const Deposit = () => {
           <div className="deposit_intro_right_code">{formatMoney(userBalance as number)}</div>
         </div>
       </div>
-
       <div className="deposit_make">
         <div>Make a deposit</div>
       </div>

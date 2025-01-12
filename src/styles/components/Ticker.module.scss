@@ -1,0 +1,108 @@
+// .ticker_container {
+//     width: 100%;
+//     // overflow: hidden;
+//     background: #222;
+//     color: #fff;
+//     // padding: 10px 0;
+//     box-sizing: border-box;
+//   }
+  
+//   .ticker {
+//     display: flex;
+//     // align-items: center;
+//     // justify-content: space-between;
+//     animation: ticker 50s linear infinite;
+//     border: 1px solid red;
+//   }
+  
+//   .ticker_item {
+//     display: flex;
+//     align-items: start;
+//     justify-content: start;
+//     border: 1px solid blue;
+
+//     // margin-right: 30px;
+  
+//     img {
+//       width: 20px;
+//       height: 20px;
+//     //   margin-right: 10px;
+//     //   display: inline-block;
+//     }
+//   }
+
+// //   .crypto_image {
+// //     width: 20px;
+// //     height: 20px;
+// //     display: inline;
+// //   }
+  
+//   @keyframes ticker {
+//     from {
+//       transform: translateX(100%);
+//     }
+//     to {
+//       transform: translateX(-100%);
+//     }
+//   }
+
+
+@use "/src/styles/main.scss" as *;
+
+.tickerContainer {
+
+    @include flex(start, center, toRem(40));
+    padding-top: toRem(10);
+    animation: ticker 30s linear infinite;
+    font-size: toRem(11);
+    font-weight: 400;
+
+    @include media("<=tablet") {
+        font-size: toRem(9);
+        gap: toRem(15);
+    }
+
+    .tickerItem {
+        @include flex(start, center, toRem(5));
+        flex-shrink: 0;
+
+        @include media("<=tablet") {
+            font-size: toRem(9);
+            gap: toRem(2);
+        }
+
+        &_image {
+            width: toRem(15);
+            height: toRem(15);
+
+            @include media("<=tablet") {
+                width: toRem(13);
+                height: toRem(13);
+            }
+        }
+
+        &_name {
+            // width: 100%;
+            // border: 1px solid blue;
+            // @include flex(start, center, 0px);
+            flex-shrink: 0;
+        }
+
+        &_price {
+            color: $my_green;
+        }
+
+        &_negative {
+            color: red;
+        }
+    }
+
+    @keyframes ticker {
+        from {
+            transform: translateX(5%);
+        }
+        to {
+            transform: translateX(-40%);
+        }
+    }
+}
