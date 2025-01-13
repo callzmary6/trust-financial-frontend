@@ -31,14 +31,16 @@ const Ticker: React.FC = () => {
   );
   if (true) return (
     <div className={styles.tickerContainer}>
+      <div className={styles.helper}>
         {cryptoData.map((crypto)=> 
-        <div key={crypto.id} className={styles.tickerItem}>
-            <img src={crypto.image} alt="" className={styles.tickerItem_image}/>
-            <div className={styles.tickerItem_name}>{crypto.name}</div>
-            <div className={styles.tickerItem_symbol}>({crypto.symbol.toUpperCase()})</div>
-            <div className={`${crypto.price_change_percentage_24h>=0? styles.tickerItem_price: styles.tickerItem_negative}`}>{formatMoney(crypto.current_price)}</div>
-            <div className={`${crypto.price_change_percentage_24h>=0? styles.tickerItem_price: styles.tickerItem_negative}`}>({crypto.price_change_percentage_24h.toFixed(2)}%)</div>
-        </div>)}
+          <div key={crypto.id} className={styles.tickerItem}>
+              <img src={crypto.image} alt="" className={styles.tickerItem_image}/>
+              <div className={styles.tickerItem_name}>{crypto.name}</div>
+              <div className={styles.tickerItem_symbol}>({crypto.symbol.toUpperCase()})</div>
+              <div className={`${crypto.price_change_percentage_24h>=0? styles.tickerItem_price: styles.tickerItem_negative}`}>{formatMoney(crypto.current_price)}</div>
+              <div className={`${crypto.price_change_percentage_24h>=0? styles.tickerItem_price: styles.tickerItem_negative}`}>({crypto.price_change_percentage_24h.toFixed(2)}%)</div>
+          </div>)}
+      </div>
     </div>
   )
 };

@@ -1,51 +1,3 @@
-// .ticker_container {
-//     width: 100%;
-//     // overflow: hidden;
-//     background: #222;
-//     color: #fff;
-//     // padding: 10px 0;
-//     box-sizing: border-box;
-//   }
-  
-//   .ticker {
-//     display: flex;
-//     // align-items: center;
-//     // justify-content: space-between;
-//     animation: ticker 50s linear infinite;
-//     border: 1px solid red;
-//   }
-  
-//   .ticker_item {
-//     display: flex;
-//     align-items: start;
-//     justify-content: start;
-//     border: 1px solid blue;
-
-//     // margin-right: 30px;
-  
-//     img {
-//       width: 20px;
-//       height: 20px;
-//     //   margin-right: 10px;
-//     //   display: inline-block;
-//     }
-//   }
-
-// //   .crypto_image {
-// //     width: 20px;
-// //     height: 20px;
-// //     display: inline;
-// //   }
-  
-//   @keyframes ticker {
-//     from {
-//       transform: translateX(100%);
-//     }
-//     to {
-//       transform: translateX(-100%);
-//     }
-//   }
-
 
 @use "/src/styles/main.scss" as *;
 
@@ -53,17 +5,26 @@
 
     @include flex(start, center, toRem(40));
     padding-top: toRem(10);
-    animation: ticker 30s linear infinite;
     font-size: toRem(11);
     font-weight: 400;
+    overflow-x: auto;
 
     @include media("<=tablet") {
         font-size: toRem(9);
         gap: toRem(15);
     }
 
+    .helper {
+        animation: ticker 30s linear infinite;
+        @include flex(start, center, toRem(10));   
+
+        @include media(">=tablet") {
+            gap: toRem(40);
+        }
+    }
+
     .tickerItem {
-        @include flex(start, center, toRem(5));
+        @include flex(start, center, toRem(5));   
         flex-shrink: 0;
 
         @include media("<=tablet") {
@@ -76,15 +37,13 @@
             height: toRem(15);
 
             @include media("<=tablet") {
-                width: toRem(13);
-                height: toRem(13);
+                width: toRem(11);
+                height: toRem(11);
+                align-self: center;
             }
         }
 
         &_name {
-            // width: 100%;
-            // border: 1px solid blue;
-            // @include flex(start, center, 0px);
             flex-shrink: 0;
         }
 
